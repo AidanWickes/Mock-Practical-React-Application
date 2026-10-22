@@ -12,13 +12,13 @@ Before you start, follow [setup.md](setup.md) steps 1 to 3: install packages, st
 
 ## What you will hand in
 
-| # | Deliverable | Where it goes |
-|---|---|---|
-| 1 | A working database schema with three tables | `prisma/schema.prisma` |
-| 2 | A seed script that fills the database with sample data | `prisma/seed.ts` |
-| 3 | A screenshot of your ERD from the Prisma Studio Visualizer | `docs/erd.png` |
-| 4 | A written explanation of every relationship in your ERD | `docs/relationships.md` (template provided) |
-| 5 | A work log covering what you did and why | `WORKLOG.md` |
+| #   | Deliverable                                                | Where it goes                               |
+| --- | ---------------------------------------------------------- | ------------------------------------------- |
+| 1   | A working database schema with three tables                | `prisma/schema.prisma`                      |
+| 2   | A seed script that fills the database with sample data     | `prisma/seed.ts`                            |
+| 3   | A screenshot of your ERD from the Prisma Studio Visualizer | `docs/erd.png`                              |
+| 4   | A written explanation of every relationship in your ERD    | `docs/relationships.md` (template provided) |
+| 5   | A work log covering what you did and why                   | `WORKLOG.md`                                |
 
 ### Already done for you
 
@@ -60,26 +60,32 @@ Copy this template for each entry:
 ## Entry <number>: <date>
 
 ### What I did
-- 
+
+-
 
 ### Why I did it this way
-- 
+
+-
 
 ### Problems I hit and how I fixed them
-- 
+
+-
 
 ### What I will do next
-- 
+
+-
 ```
 
 ### What a good entry looks like
 
 > **Why I did it this way**
+>
 > - I put the foreign key `directorId` on `Film`, not on `Director`. Each film has only one director, so one column holds it. If I put it on `Director` I would need a list of film IDs in one column, which a relational database cannot store properly.
 
 ### What a weak entry looks like
 
 > **Why I did it this way**
+>
 > - I made the tables because the task said to.
 
 The "why" is the most important part of the log.
@@ -232,7 +238,7 @@ In Prisma Studio, open `Film`. Does every film have a `directorId`? Now open `Di
 
 **Rule:** a film has many actors, and an actor can appear in many films.
 
-This is a **many-to-many** relationship. A foreign key on one side cannot hold this, because each side needs a *list* of the other. A **join table** sits in the middle instead.
+This is a **many-to-many** relationship. A foreign key on one side cannot hold this, because each side needs a _list_ of the other. A **join table** sits in the middle instead.
 
 ### 1. Model
 
