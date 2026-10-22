@@ -5,6 +5,7 @@
   // List of extensions which should be recommended for users of this workspace.
   "recommendations": [
     "dotenv.dotenv-vscode",
+    "shd101wyy.markdown-preview-enhanced",
     "christian-kohler.npm-intellisense",
     "YoavBls.pretty-ts-errors",
     "Prisma.prisma",
