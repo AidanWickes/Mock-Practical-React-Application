@@ -55,24 +55,24 @@ npx prisma generate
 - `migrate dev` creates the tables. Run it again after each schema change, with a new name (e.g. `--name add-reviews`).
 - `generate` updates the Prisma Client so your code gets autocomplete.
 
-## 5. Run the app
+## 5. Check the database is running
 
 ```bash
-npm run dev
+npx prisma studio
 ```
 
-Open http://localhost:3000.
+This opens a web page showing your tables. If it loads and lists your models, the database is running and connected. Close it with `Ctrl+C` when you're done.
 
 ## Every time you come back
 
 1. Terminal 1: `npx prisma dev`
-2. Terminal 2: `npm run dev`
+2. Terminal 2: `npx prisma studio` to view and edit your data
 
 ## Other useful commands
 
 | Command | What it does |
 |---|---|
-| `npx prisma studio` | Opens a web page to view and edit your data |
+| `npm run dev` | Runs the Next.js app at http://localhost:3000 (not needed to add data) |
 | `npx prisma db seed` | Runs `prisma/seed.ts` to add starting data |
 | `npm run lint` | Checks your code for mistakes |
 | `npm run build` | Builds the app and catches type errors |
