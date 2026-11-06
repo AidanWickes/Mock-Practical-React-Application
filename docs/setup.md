@@ -4,11 +4,15 @@ Run every command from the project folder (the one with `package.json`).
 
 You need **Node.js** installed. Check with `node --version`.
 
-## 1. Install packages
+## 1. Check the packages are installed
+
+There is no internet in this session, so the packages are already installed in the `node_modules` folder. **Do not run `npm install`.** Check they work:
 
 ```bash
-npm install
+npx prisma --version
 ```
+
+It should print a list of versions, with a `prisma` line showing version 7. If it says it needs to install or download anything, stop and tell me.
 
 ## 2. Start the database
 
@@ -37,7 +41,7 @@ cp .env.example .env
 
 (Windows PowerShell: `Copy-Item .env.example .env`)
 
-Open `.env` and replace both lines with the two lines `npx prisma dev` printed. Copy them exactly.
+Open `.env` and replace the empty `DATABASE_URL` and `SHADOW_DATABASE_URL` lines with the two lines `npx prisma dev` printed. Copy them exactly. Leave the `PRISMA_HIDE_UPDATE_MESSAGE` line as it is.
 
 > Never commit `.env` to Git.
 
@@ -52,7 +56,7 @@ npx prisma generate
 ```
 
 - `format` tidies the schema and shows any mistakes.
-- `migrate dev` creates the tables. Run it again after each schema change, with a new name (e.g. `--name add-reviews`).
+- `migrate dev` creates the tables. Run it again after each schema change, with a new name (e.g. `--name add-track`).
 - `generate` updates the Prisma Client so your code gets autocomplete.
 
 ## 5. Check the database is running
@@ -81,9 +85,4 @@ This opens a web page showing your tables. If it loads and lists your models, th
 
 **Can't connect to the database:** check `npx prisma dev` is still running in its terminal, and that `.env` has the lines it printed.
 
-**npm warns about "install-scripts":** you can usually ignore it. If a Prisma or `tsx` command later fails, run:
-
-```bash
-npm install-scripts approve prisma @prisma/engines esbuild unrs-resolver
-npm rebuild
-```
+**A command says a package is missing, or tries to download something:** the `node_modules` folder is incomplete. Do not run `npm install`. Tell me.
